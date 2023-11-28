@@ -1,15 +1,15 @@
 import styles from "./Item.module.scss";
 
 interface ItemProps {
-  tarefa: string;
-  tempo: string;
+  task: string;
+  time: string;
 }
 
-export default function Item({ tarefa, tempo }: ItemProps) {
+export default function Item({ task, time }: ItemProps) {
   return (
     <li className={styles.item}>
-      <h3>{tarefa}</h3>
-      <span>{tempo}</span>
+      <h3>{task}</h3>
+      <span>{time}</span>
     </li>
   );
 }

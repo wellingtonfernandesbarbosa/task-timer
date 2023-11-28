@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
-  children: string
+  children: string;
+  type: "button" | "submit" | "reset" | undefined
 }
 
 class Button extends React.Component<ButtonProps> {
   render(): React.ReactNode {
-    return <button className={styles.button}>{this.props.children}</button>;
+    return <button type={this.props.type} className={styles.button}>{this.props.children}</button>;
   }
 }
 

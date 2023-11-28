@@ -9,7 +9,7 @@ export default function Chronometer() {
       <div className={styles.clockWrapper}>
         <Clock />
       </div>
-      <Button>Começar</Button>
+      <Button type="button">Começar</Button>
     </div>
   );
 }
