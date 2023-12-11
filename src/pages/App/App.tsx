@@ -7,11 +7,25 @@ import Chronometer from "../../components/Chronometer";
 import List from "../../components/List";
 
 function App() {
-  const [task, setTask] = useState<ITask[]>([])
+  const [tasks, setTask] = useState<ITask[]>([])
+  const [selected, setSelected] =useState<ITask>()
+
+  function selectTask (selectedTask: ITask) {
+    setSelected(selectedTask)
+    setTask(previousTask => previousTask.map(task => ({
+      ...task,
+      selected: task.id === selectedTask.id ? true : false
+    })))
+    console.log(selected)
+  }
+
   return (
     <div className={styles.AppStyle}>
       <Form setTask={setTask}/>
-      <List task={task}/>
+      <List 
+        task={tasks}
+        selectTask = {selectTask}
+      />
       <Chronometer />
     </div>
   );
