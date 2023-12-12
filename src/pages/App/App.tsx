@@ -38,9 +38,9 @@ function App() {
 
   return (
     <div className={styles.AppStyle}>
-      <Form setTask={setTask}/>
+      <Form setTasks={setTask}/>
       <List 
-        task={tasks}
+        tasks={tasks}
         selectTask = {selectTask}
       />
       <Chronometer 
