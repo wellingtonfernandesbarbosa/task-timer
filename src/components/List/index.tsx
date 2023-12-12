@@ -11,7 +11,7 @@ function List({tasks, selectTask}: Props) {
 
   return (
     <aside className={styles.taskList}>
-      <h2> Estudos do dia </h2>
+      {tasks.length !== 0 && <h2> Estudos do dia </h2>}
       <ul>
         {tasks.map((item) => (
           <Item key={item.id} {...item} selectTask={selectTask} />
