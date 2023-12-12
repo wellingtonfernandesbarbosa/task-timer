@@ -19,6 +19,23 @@ function App() {
     console.log(selected)
   }
 
+  function finishTask() {
+    setSelected(undefined);
+
+    if (selected){
+      setTask(previousTask => previousTask.map(task => {
+        if (task.id === selected.id) {
+          return {...task,
+        selected: false,
+        completed: true
+          }
+        }
+
+        return task;
+      }))
+    }
+  }
+
   return (
     <div className={styles.AppStyle}>
       <Form setTask={setTask}/>
@@ -26,7 +43,10 @@ function App() {
         task={tasks}
         selectTask = {selectTask}
       />
-      <Chronometer />
+      <Chronometer 
+        selected={selected}
+        finishTask={finishTask}
+      />
     </div>
   );
 }
